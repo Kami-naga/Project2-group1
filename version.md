@@ -13,3 +13,12 @@
   [to do]
   1.improve items
   2.nav
+
+  ##version 3##
+  [improve] category input
+  [feature] delete
+  [feature] edit
+  --------------
+  [to do]
+  1.done(history)
+  2.improve items(link)

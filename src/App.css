@@ -11,3 +11,8 @@
 #intro{
   text-align:center;
 }
+
+#buttonBar{
+  position:absolute;
+  right:100px;
+}
