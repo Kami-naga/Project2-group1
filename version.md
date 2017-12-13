@@ -1,6 +1,6 @@
 
 
-#Project2-group1#
+# Project2-group1 #
 
 ##  version 1 ##
 
@@ -8,11 +8,11 @@
 
   [feature] form
 
-##  version 2 ##  
+##  version 2 ##
 
-  [improve] input form
+[improve] input form
 
-  [feature] items,itemstable
+[feature] items,itemstable
   -------------
   [to do]
   1.improve items
@@ -20,7 +20,7 @@
 
 ## version 3 ##
 
-  [improve] category input
+[improve] category input
   [feature] delete
   [feature] edit
   --------------
