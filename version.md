@@ -12,6 +12,7 @@
 
 [improve] input form
 
+
 [feature] items,itemstable
   -------------
   [to do]
@@ -20,10 +21,24 @@
 
 ## version 3 ##
 
+
 [improve] category input
+
   [feature] delete
+
   [feature] edit
+
   --------------
   [to do]
+  1.done(history)
+  2.improve items(link)
+
+
+## version 4 ##
+
+[feature] router  
+
+------------------
+[to do]
   1.done(history)
   2.improve items(link)
