@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Nav,NavDropdown,MenuItem,NavItem,Tab,Row,Col} from 'react-bootstrap';
-export default class Tags extends Component {
+import {ItemsTable} from "./input";
+class Tags extends React.Component {
 
     render() {
         return (
@@ -10,39 +11,38 @@ export default class Tags extends Component {
                     <Col sm={12}>
                         <Nav bsStyle="tabs">
                             <NavItem eventKey="first">
-                                Tab 1
+                                ALL
                             </NavItem>
                             <NavItem eventKey="second">
-                                Tab 2
+                                Anime
                             </NavItem>
-                            <NavDropdown eventKey="3" title="Dropdown">
-                                <MenuItem eventKey="3.1">Action</MenuItem>
-                                <MenuItem eventKey="3.2">Another action</MenuItem>
-                                <MenuItem eventKey="3.3">Something else here</MenuItem>
-                                <MenuItem divider />
-                                <MenuItem eventKey="3.4">Separated link</MenuItem>
-                            </NavDropdown>
+                            <NavItem eventKey="third">
+                                Comics
+                            </NavItem>
+                            <NavItem eventKey="fourth">
+                                Books
+                            </NavItem>
+                            <NavItem eventKey="fifth">
+                                Done
+                            </NavItem>
                         </Nav>
                     </Col>
                     <Col sm={12}>
                         <Tab.Content animation>
                             <Tab.Pane eventKey="first">
-                                Tab 1 content
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="all" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
-                                Tab 2 content
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="anime" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="3.1">
-                                Tab 3.1 content
+                            <Tab.Pane eventKey="third">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="comics" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="3.2">
-                                Tab 3.2 content
+                            <Tab.Pane eventKey="fourth">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="book" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="3.3">
-                                Tab 3.3 content
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="3.4">
-                                Tab 3.4 content
+                            <Tab.Pane eventKey="fifth">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="none" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>
@@ -50,4 +50,6 @@ export default class Tags extends Component {
             </Tab.Container>
         );
     };
-};
+}
+
+export default Tags;

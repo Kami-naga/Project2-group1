@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
-
+import { Nav,NavDropdown,MenuItem,NavItem,Tab,Row} from 'react-bootstrap';
 import { Button,ButtonToolbar,ButtonGroup} from 'react-bootstrap';
 import { FormControl,FormGroup,HelpBlock,ControlLabel,Col,Form,Checkbox} from 'react-bootstrap';
-import {Table} from 'react-bootstrap'
-import {Modal} from 'react-bootstrap'
+import {Table} from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 
 
 
@@ -110,13 +110,14 @@ class Items extends React.Component{
         this.props.changeItem(this.state.select,this.props.seq);
     }
     render(){
+        var l='http://'+this.props.link;
         return(
 
             <tr>
                 <Checkbox onChange={this.changeCheck}>{this.props.seq}</Checkbox>
                 <td>{this.props.name}</td>
                 <td>{this.props.episode}</td>
-                <td>{this.props.link}</td>
+                <td><a href={l}>link</a></td>
                 <td>{this.props.category}</td>
             </tr>
 
@@ -127,15 +128,15 @@ class Items extends React.Component{
 
 class ItemsTable extends React.Component{
     render(){
-        var list = (length,name,eps,link,ctg,de,ci) => {
+        var list = (length,name,eps,link,ctg,de,tc,ci) => {
             var res = [];
             for(var i = 0; i < length; i++) {
-                if (de[i]){
+                if (de[i]&&((ctg[i]===tc)||tc==='all')){
                     res.push(<Items seq={i+1} name={name[i]} episode={eps[i]} link={link[i]} category={ctg[i]} changeItem={ci.bind(this)} key={i+1}/>);
                 }
             }
             return res;
-        }
+        };
 
         return(
             <Table striped bordered condensed hover>
@@ -149,11 +150,93 @@ class ItemsTable extends React.Component{
                 </tr>
                 </thead>
                 <tbody>
-                {list(this.props.length,this.props.name,this.props.ep,this.props.link,this.props.category,this.props.exist,this.props.changeItem)}
+                {list(this.props.length,this.props.name,this.props.ep,this.props.link,this.props.category,this.props.exist,this.props.thisCategory,this.props.changeItem)}
                 </tbody>
             </Table>
         )
     }
+}
+
+class ItemsTableDone extends React.Component{
+    render(){
+        var list = (length,name,eps,link,ctg,de,don,ci) => {
+            var res = [];
+            for(var i = 0; i < length; i++) {
+                if (don[i]){
+                    res.push(<Items seq={i+1} name={name[i]} episode={eps[i]} link={link[i]} category={ctg[i]} changeItem={ci.bind(this)} key={i+1}/>);
+                }
+            }
+            return res;
+        };
+
+        return(
+            <Table striped bordered condensed hover>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Episode</th>
+                    <th>Link</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+                <tbody>
+                {list(this.props.length,this.props.name,this.props.ep,this.props.link,this.props.category,this.props.exist,this.props.done,this.props.changeItem)}
+                </tbody>
+            </Table>
+        )
+    }
+}
+
+
+class Tags extends React.Component {
+
+    render() {
+        return (
+            <Tab.Container id="tabs-with-dropdown" defaultActiveKey="first">
+                <Row className="clearfix">
+                    <Col sm={12}>
+                        <Nav bsStyle="tabs">
+                            <NavItem eventKey="first">
+                                ALL
+                            </NavItem>
+                            <NavItem eventKey="second">
+                                Anime
+                            </NavItem>
+                            <NavItem eventKey="third">
+                                Comics
+                            </NavItem>
+                            <NavItem eventKey="fourth">
+                                Books
+                            </NavItem>
+                            <NavItem eventKey="fifth">
+                                Done
+                            </NavItem>
+                        </Nav>
+                    </Col>
+                    <Col sm={12}>
+                        <Tab.Content animation>
+                            <Tab.Pane eventKey="first">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="all" changeItem={this.props.changeItem}/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="second">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="anime" changeItem={this.props.changeItem}/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="third">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="comics" changeItem={this.props.changeItem}/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="fourth">
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="book" changeItem={this.props.changeItem}/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="fifth">
+                                <ItemsTableDone length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} done={this.props.done} changeItem={this.props.changeItem}/>
+                            </Tab.Pane>
+                        </Tab.Content>
+                    </Col>
+                </Row>
+            </Tab.Container>
+        );
+    };
 }
 
 class Editinfo extends React.Component{
@@ -231,7 +314,8 @@ class InputinfoInline extends React.Component {
             ctg:[],
             length:0,
             de:[],
-            ed:[]
+            ed:[],
+            done:[]
         };
         this.changeName = this.changeName.bind(this);
         this.changeEp = this.changeEp.bind(this);
@@ -239,7 +323,7 @@ class InputinfoInline extends React.Component {
         this.changeCategory = this.changeCategory.bind(this);
         this.changeItem = this.changeItem.bind(this);
         this.changeDelete = this.changeDelete.bind(this);
-        // this.changeDone = this.changeDone.bind(this);
+        this.changeDone = this.changeDone.bind(this);
         this.changeEdit = this.changeEdit.bind(this);
         this.changeE = this.changeE.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -262,6 +346,8 @@ class InputinfoInline extends React.Component {
         d.push(true);
         var ee=this.state.ed;
         ee.push(false);
+        var dd=this.state.done;
+        dd.push(false);
         var lg=this.state.length+1;
         this.setState({
             name:n,
@@ -270,7 +356,8 @@ class InputinfoInline extends React.Component {
             category:c,
             length:lg,
             de:d,
-            ed:ee
+            ed:ee,
+            done:dd
         });
         this.cit[lg]=false;
         /* alert('name:'+this.state.name+'\n'+
@@ -321,6 +408,20 @@ class InputinfoInline extends React.Component {
             ep:epp,
             link:l,
             category:c,
+        });
+    }
+    changeDone(){
+        var dett=this.state.de;
+        var dd=this.state.done;
+        for (var j=0;j<this.state.length;j++){
+            if (this.cit[j+1]===true){
+                dett[j]=false;
+                dd[j]=true;
+            }
+        }
+        this.setState({
+            de:dett,
+            done:dd
         });
     }
     changeE(){
@@ -375,7 +476,10 @@ class InputinfoInline extends React.Component {
                     </Button>
 
                 </Form>
-                <ItemsTable length={this.state.length} name={this.state.name} ep={this.state.ep} link={this.state.link} category={this.state.ctg} exist={this.state.de} changeItem={this.changeItem.bind(this)}/>
+
+
+                <Tags length={this.state.length} name={this.state.name} ep={this.state.ep} link={this.state.link} category={this.state.ctg} exist={this.state.de} done={this.state.done} changeItem={this.changeItem.bind(this)}/>
+
                 <Form >
                     <ButtonToolbar id="bottonBar">
                         <Button bsStyle="primary" onClick={this.changeE}>Edit</Button>

@@ -36,9 +36,19 @@
 
 ## version 4 ##
 
-[feature] router  
+[feature] router
 
 ------------------
 [to do]
   1.done(history)
   2.improve items(link)
+
+
+ ## version 5 ##
+
+  [feature] tags
+  [feature] done(history)
+  [improve] items(link)
+  ------------------
+  [to do]
+    1.unit test
