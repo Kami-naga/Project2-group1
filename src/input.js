@@ -110,13 +110,14 @@ class Items extends React.Component{
         this.props.changeItem(this.state.select,this.props.seq);
     }
     render(){
+        var l='http://'+this.props.link;
         return(
 
             <tr>
                 <Checkbox onChange={this.changeCheck}>{this.props.seq}</Checkbox>
                 <td>{this.props.name}</td>
                 <td>{this.props.episode}</td>
-                <td>{this.props.link}</td>
+                <td><a href={l}>link</a></td>
                 <td>{this.props.category}</td>
             </tr>
 
