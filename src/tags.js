@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Nav,NavDropdown,MenuItem,NavItem,Tab,Row,Col} from 'react-bootstrap';
 import {ItemsTable} from "./input";
-export default class Tags extends Component {
+class Tags extends React.Component {
 
     render() {
         return (
@@ -30,19 +30,19 @@ export default class Tags extends Component {
                     <Col sm={12}>
                         <Tab.Content animation>
                             <Tab.Pane eventKey="first">
-                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} changeItem={this.props.changeItem}/>
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="all" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
-                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} changeItem={this.props.changeItem}/>
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="anime" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} changeItem={this.props.changeItem}/>
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="comics" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="fourth">
-                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} changeItem={this.props.changeItem}/>
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="book" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="fifth">
-                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} changeItem={this.props.changeItem}/>
+                                <ItemsTable length={this.props.length} name={this.props.name} ep={this.props.ep} link={this.props.link} category={this.props.category} exist={this.props.exist} thisCategory="none" changeItem={this.props.changeItem}/>
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>
@@ -50,4 +50,6 @@ export default class Tags extends Component {
             </Tab.Container>
         );
     };
-};
+}
+
+export default Tags;
