@@ -26,7 +26,7 @@ class Navibar extends React.Component {
                         <NavDropdown eventKey={2} title="列表" id="basic-nav-dropdown">
                             <MenuItem eventKey={2.1}  target={"_blank"}><Link to="/list1">list1</Link></MenuItem>
                             <MenuItem eventKey={2.2} target={"_blank"}><Link to="/list2">list2</Link></MenuItem>
-                            <MenuItem eventKey={2.3} target={"_blank"}><Link to="/list3">list</Link></MenuItem>
+                            <MenuItem eventKey={2.3} target={"_blank"}><Link to="/list3">list3</Link></MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey={2.4}>其他</MenuItem>
                         </NavDropdown>
