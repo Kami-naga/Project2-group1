@@ -12,7 +12,6 @@
 
 [improve] input form
 
-
 [feature] items,itemstable
   -------------
   [to do]
@@ -45,10 +44,13 @@
 
 
  ## version 5 ##
-
+ 
   [feature] tags
+
   [feature] done(history)
+
   [improve] items(link)
+
   ------------------
   [to do]
     1.unit test
