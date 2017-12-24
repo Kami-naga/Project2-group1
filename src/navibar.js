@@ -34,8 +34,8 @@ class Navibar extends React.Component {
                         <li><Link to="/record">record</Link></li>
                     </Nav>
                     <Nav pullRight>
-                        <Button bsStyle="link" bsSize="large" eventKey={1} href="http://kirarafantasia.com">登录</Button>
-                        <Button bsStyle="link" bsSize="large" eventKey={2} href="http://kirarafantasia.com">注册</Button>
+                        <Button bsStyle="link" bsSize="large" eventKey={1} >登录</Button>
+                        <Button bsStyle="link" bsSize="large" eventKey={2} >注册</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
