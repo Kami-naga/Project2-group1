@@ -16,7 +16,7 @@ class Navibar extends React.Component {
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">title</Link>
+                        <Link to="/">Welcome</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
