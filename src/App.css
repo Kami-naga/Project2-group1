@@ -17,10 +17,9 @@
   position:absolute;
   right:100px;
 }
-.searchBox{
-	text-align: center;
+.searchBar{
+	align-items: center;
 }
-
 #welcomePage{
 	vertical-align: top;
 	height: 1000px;

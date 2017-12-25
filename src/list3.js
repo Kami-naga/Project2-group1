@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Table} from 'react-bootstrap'
+import {Table} from 'react-bootstrap';
+import { FormControl,Col,Form} from 'react-bootstrap';
+
 class List3 extends React.Component{
     constructor(){
         super();
@@ -31,7 +33,11 @@ class List3 extends React.Component{
         var filtered7 = this.state.name[6].indexOf(filter);
         var filtered8 = this.state.name[7].indexOf(filter);
         let itemTable;
+<<<<<<< HEAD
         if (filter == ''){
+=======
+        if (filter === ''){
+>>>>>>> develop
             itemTable = (
                 <tbody>
                 <tr>
@@ -194,19 +200,42 @@ class List3 extends React.Component{
 
         else{
             itemTable = (
+<<<<<<< HEAD
                 <p> Nothing found in  here </p>
+=======
+                 <tbody>
+                 <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> Nothing found in here... </td>
+                 </tr>
+                </tbody>
+>>>>>>> develop
             );
         }
         return(
             <div className="searchBox">
+<<<<<<< HEAD
                 <input type="text" value={this.state.search} placeholder="Search..."
                      onChange={this.updateSearch.bind(this)}/>
+=======
+                <Form className="searchBar">
+                        <Col sm={4}>
+                            <FormControl type="text" placeholder="Search..." value={this.state.search}
+                            onChange={this.updateSearch.bind(this)} />
+                        </Col>
+                </Form>
+>>>>>>> develop
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+<<<<<<< HEAD
                         <th>summary</th>
+=======
+                        <th class="col-md-10">summary</th>
+>>>>>>> develop
                         <th>Link</th>
                     </tr>
                     </thead>
@@ -214,7 +243,6 @@ class List3 extends React.Component{
                 </Table>
             </div>
         )
-    }
-}
+    }}
 
 export default List3;

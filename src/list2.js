@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Table} from 'react-bootstrap'
+import {Table} from 'react-bootstrap';
+import { FormControl,Col,Form} from 'react-bootstrap';
+import './App.css';
 class List2 extends React.Component{
     constructor(){
         super();
@@ -30,7 +32,11 @@ class List2 extends React.Component{
         var filtered7 = this.state.name[6].indexOf(filter);
         var filtered8 = this.state.name[7].indexOf(filter);
         let itemTable;
+<<<<<<< HEAD
         if (filter == '') {
+=======
+        if (filter === '') {
+>>>>>>> develop
             itemTable = (
                 <tbody>
                     <tr>
@@ -155,6 +161,7 @@ class List2 extends React.Component{
                     <td>死神</td>
                     <td>除了能够看到灵魂，别无是处的普通高中生——黑崎一护有一天邂逅了一名少女，接着人生就发生了很大的转变。自称为死神的少女——朽木路奇亚，追着被称做虚的恶灵突然出现到了一护面前。由于一护的灵力很高，他就成为了虚下手的对像。身受重伤的路基亚无法解决恶灵，不得已只有把死神的能力分给一护，成为死神的一护与失去死神力量的路奇亚就一起开始了新的战斗……</td>
                     <td ><a href="http://manhua.dmzj.com/sishen">Link</a></td>
+<<<<<<< HEAD
                 </tr>
                 </thead>
             );
@@ -187,18 +194,72 @@ class List2 extends React.Component{
         else{
             itemTable = (
                 <p> Nothing found in here </p>
+=======
+                </tr>
+                </thead>
+            );
+        }
+        else if (filtered7 !== -1){
+            itemTable = (
+                <thead>
+                <tr>
+                    <td>7</td>
+                    <td>火影忍者</td>
+                    <td>从小身上封印着邪恶的九尾妖狐，无父无母的鸣人受尽了村人的冷落，但是他却不知道原因，只是拼命用各种恶作剧试图吸引大家的注意力，人们却反而更远离他。好在还是有依卡鲁老师关心他，鸣人的性格才没有变得扭曲，他总是干劲十足，嘻嘻哈哈，超级乐观。为了让更多的人认可自己，鸣人的目标是——成为第五代火影！</td>
+                    <td ><a href="http://manhua.dmzj.com/huoyingrenzhe">Link</a></td>
+                </tr>
+                </thead>
+            );
+        }
+        else if (filtered8 !== -1){
+            itemTable = (
+                <thead>
+                    <tr>
+                    <td>8</td>
+                    <td>海贼王</td>
+                    <td>财富，权力，曾经拥有一切的海贼王戈尔多·罗杰，在临死前畱下暸一句话：“想要我的财富吗？那就去找吧，我的一切都在那裏，在那伟大的航道！”于是越来越多的人奔嚮大海，驶入伟大的航道，世界迎来暸大海贼时代！很多年后，一个小孩对这一个断暸手臂的海贼髮誓：“我一定要成为海贼王！”于是10年后，一个伟大的传说开始暸。这是个关于一群爱做梦孩子的故事，他们拥有热情，他们拥有毅力，他们拥有伙伴……</td>
+                    <td ><a href="http://manhua.dmzj.com/haizeiwang">Link</a></td>
+                </tr>
+                </thead>
+            );
+        }
+
+        else{
+            itemTable = (
+                <tbody>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> Nothing found in here... </td>
+                </tr>
+                </tbody>
+>>>>>>> develop
             );
         }
         return(
             <div className ="searchBox">
+<<<<<<< HEAD
                 <input type="text" value={this.state.search} placeholder="Search..."
                  onChange={this.updateSearch.bind(this)}/>
+=======
+                 <Form className="searchBar">
+                        <Col sm={4}>
+                            <FormControl type="text" placeholder="Search..." value={this.state.search}
+                            onChange={this.updateSearch.bind(this)} />
+                        </Col>
+                </Form>
+
+>>>>>>> develop
                 <Table striped bordered condensed hover>
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+<<<<<<< HEAD
                             <th>summary</th>
+=======
+                            <th class="col-md-10">summary</th>
+>>>>>>> develop
                             <th>Link</th>
                         </tr>
                     </thead>

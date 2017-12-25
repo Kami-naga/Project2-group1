@@ -76,7 +76,7 @@ class InputinfoHorizontal extends React.Component {
                         Category:
                     </Col>
                     <Col sm={10}>
-                        <FormControl componentClass="select" placeholder={this.props.category} onChange={this.changeCategory}>
+                        <FormControl id="categoryChange" componentClass="select" placeholder={this.props.category} onChange={this.changeCategory}>
                             <option value="anime">Anime</option>
                             <option value="comics">Comics</option>
                             <option value="book">Books</option>
@@ -85,7 +85,7 @@ class InputinfoHorizontal extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Button bsStyle="primary" onClick={this.saveChange}>Save changes</Button>
+                        <Button id="change" bsStyle="primary" onClick={this.saveChange}>Save changes</Button>
                     </Col>
                 </FormGroup>
 
@@ -482,7 +482,7 @@ class InputinfoInline extends React.Component {
 
                 <Form >
                     <ButtonToolbar id="bottonBar">
-                        <Button bsStyle="primary" onClick={this.changeE}>Edit</Button>
+                        <Button id="edit" bsStyle="primary" onClick={this.changeE}>Edit</Button>
                         <Button bsStyle="success" onClick={this.changeDone}>Done</Button>
                         <Button bsStyle="danger" onClick={this.changeDelete}>Delete</Button>
                     </ButtonToolbar>
