@@ -36,7 +36,7 @@ class List1 extends React.Component{
             var filtered7 = this.state.name[6].indexOf(filter);
             var filtered8 = this.state.name[7].indexOf(filter);
             let itemTable;
-            if (filter == ''){
+            if (filter === ''){
                 itemTable = (
                     <tbody>
                         <tr>
@@ -110,7 +110,7 @@ class List1 extends React.Component{
                 itemTable = (
                     <thead>
                         <tr>
-                            <td>1</td>
+                            <td>2</td>
                             <td>斩服少女</td>
                             <td>本故事以被武力和恐怖支配的本能字学院为舞台，以为父报仇的转校生少女为中心， 围绕着在学园中“执牛耳者”的学生及学生会四大天王间的激战故事展开。 缠流子和鬼龙院皋月，两人为本作的主人公。在本作中，皋月用极制服的力量支配着学园， 而流子为查明父亲死亡的真相而与皋月对抗。 在这由力量支配的学园中，由于手持片太刀铗的转校生的到来，引起了动乱， 这一场各个能力者均被打倒的故事因此而开始！</td>
                             <td><a href="https://bangumi.bilibili.com/anime/419?from=search&seid=1605314221698094105">Link</a></td>
@@ -197,9 +197,11 @@ class List1 extends React.Component{
             else{
                 itemTable=(
                     <tbody>
+                    <tr>
                         <td> </td>
                         <td> </td>
                         <td> Nothing found in here... </td>
+                    </tr>
                     </tbody>
                 );
             }
@@ -217,8 +219,8 @@ class List1 extends React.Component{
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th class="col-md-10">summary</th>
-                                <th class="col-md-1.2">Link</th>
+                                <th className="col-md-10">summary</th>
+                                <th className="col-md-1.2">Link</th>
                             </tr>
                         </thead>
                         {itemTable}

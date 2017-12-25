@@ -28,9 +28,8 @@ it('List3 rendering without crash', () => {
 });
 it('Homepage: title', () => {
     const wrapper = shallow(<Title />);
-    expect(wrapper.find('#title').text()).toEqual('次元之窗');
+    expect(wrapper.find('#title').text()).toEqual('Welcome to our app...');
 });
-
 it('Record page: the number of the input items is 4', () => {
     const wrapper = shallow(<InputinfoInline />);
     expect(wrapper.find('FormGroup').length).toEqual(4);
@@ -205,13 +204,57 @@ it('Show records', () => {
     all.simulate("click")
     expect(wrapper.find('Items').length).toEqual(5);  //4(normal)+ 1(Done)
 })
-/*
-it('Check filter', () => {
+
+it('Check filter1', () => {
     const wrapper = mount(<List1 />)
-    expect(wrapper.find('Items').length).toEqual(1);
+    expect(wrapper.find('tr').length).toEqual(9);
     const i=wrapper.find('input')
     i.simulate('focus')
     i.simulate("change",{target:{value:"从零开始的"}})
-    expect(wrapper.find('Items').length).toEqual(1);
+    expect(wrapper.find('tr').length).toEqual(2);
 })
-*/
+
+it('Check filter2', () => {
+    const wrapper = mount(<List2 />)
+    expect(wrapper.find('tr').length).toEqual(9);
+    const i=wrapper.find('input')
+    i.simulate('focus')
+    i.simulate("change",{target:{value:"一"}})
+    expect(wrapper.find('tr').length).toEqual(2);
+})
+
+it('Check filter3', () => {
+    const wrapper = mount(<List3 />)
+    expect(wrapper.find('tr').length).toEqual(9);
+    const i=wrapper.find('input')
+    i.simulate('focus')
+    i.simulate("change",{target:{value:"N"}})
+    expect(wrapper.find('tr').length).toEqual(2);
+})
+
+it('filter1 unfound', () => {
+    const wrapper = mount(<List1 />)
+    expect(wrapper.find('tr').length).toEqual(9);
+    const i=wrapper.find('input')
+    i.simulate('focus')
+    i.simulate("change",{target:{value:"a"}})
+    expect(wrapper.contains(<td> Nothing found in here... </td>)).toEqual(true);
+})
+
+it('filter2 unfound', () => {
+    const wrapper = mount(<List2 />)
+    expect(wrapper.find('tr').length).toEqual(9);
+    const i=wrapper.find('input')
+    i.simulate('focus')
+    i.simulate("change",{target:{value:"a"}})
+    expect(wrapper.contains(<td> Nothing found in here... </td>)).toEqual(true);
+})
+
+it('filter3 unfound', () => {
+    const wrapper = mount(<List3 />)
+    expect(wrapper.find('tr').length).toEqual(9);
+    const i=wrapper.find('input')
+    i.simulate('focus')
+    i.simulate("change",{target:{value:"a"}})
+    expect(wrapper.contains(<td> Nothing found in here... </td>)).toEqual(true);
+})
