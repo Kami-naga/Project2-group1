@@ -32,7 +32,7 @@ class List2 extends React.Component{
         var filtered7 = this.state.name[6].indexOf(filter);
         var filtered8 = this.state.name[7].indexOf(filter);
         let itemTable;
-        if (filter == '') {
+        if (filter === '') {
             itemTable = (
                 <tbody>
                     <tr>
@@ -189,9 +189,11 @@ class List2 extends React.Component{
         else{
             itemTable = (
                 <tbody>
+                <tr>
                     <td> </td>
                     <td> </td>
                     <td> Nothing found in here... </td>
+                </tr>
                 </tbody>
             );
         }
