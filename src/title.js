@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import Background from'./page.png';
+
 
 class Title extends React.Component{
     render(){
         return(
             <div>
-                <p id="title">unknown title</p>
-                <p id="intro">unknown intro</p>
+	            <div id="welcomePage" style={{backgroundImage: "url("+ Background + ")"}}>
+	                <p id="title">Welcome to our app...</p>
+	                <p id="intro">We are here to help you organize your favorite Anime, Comics and Books!</p>
+	                <p id="footer"> Contact Us @ </p>
+	            </div>
             </div>
         )
     }
