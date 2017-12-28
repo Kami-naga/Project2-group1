@@ -1,13 +1,13 @@
 # README
 ## How to start?
 * use webstorm to open the project
-``` npm install -g create-react-app
+``` npm install -g create-react-app```
 open webstorm > new > project > react app > create > copy src file to your project
-``` npm install --save bootstrap@3 react react-bootstrap react-dom react-router react-router-dom react-scripts
-``` npm start
+``` npm install --save bootstrap@3 react react-bootstrap react-dom react-router react-router-dom react-scripts```
+``` npm start```
 * use unit test
-``` npm install --save enzyme enzyme-adapter-react-16 react-test-renderer jest-enzyme
-``` npm test
+``` npm install --save enzyme enzyme-adapter-react-16 react-test-renderer jest-enzyme```
+``` npm test```
 ## title
 welcome page
 ## list
