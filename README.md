@@ -6,7 +6,7 @@
 
 open webstorm > new > project > react app > create > copy src file to your project
 
-``` npm install --save bootstrap@3 react react-bootstrap react-dom react-router react-router-dom react-scripts```
+``` npm install --save bootstrap@3 react-bootstrap react-router react-router-dom```
 
 ``` npm start```
 * use unit test
